@@ -35,5 +35,17 @@ namespace Exercise.Areas.HelpPage
             }
             return friendlyPath.ToString();
         }
+
+        
+        public static bool CheckIsVersionControllerValid(this ApiDescription description)
+        {
+            var controllerName = (description.ActionDescriptor).ControllerDescriptor.ControllerType.FullName;
+            var routeTemplate = (description.Route).RouteTemplate;
+
+            var isControllerWithVersion = controllerName.Contains(".Version");
+            var isRouteTemplateWithVersion = routeTemplate.Contains("{version}");
+
+            return isControllerWithVersion == isRouteTemplateWithVersion;
+        }
     }
 }
