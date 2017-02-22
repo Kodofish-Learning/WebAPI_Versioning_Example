@@ -23,7 +23,7 @@ namespace Exercise.App_Start
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             var config = GlobalConfiguration.Configuration;
             builder.RegisterWebApiFilterProvider(config);
-            builder.RegisterType<VersionedApiExplorer>().As<IApiExplorer>().WithParameter("configuration", config).InstancePerRequest();
+            builder.RegisterType<VersionedApiExplorer>().As<IApiExplorer>().WithParameter("configuration", config).InstancePerLifetimeScope();
             builder.RegisterType<RouteVersionedControllerSelector>().As<IHttpControllerSelector>().WithParameter("configuration", config).InstancePerLifetimeScope();
             //builder.RegisterType<AcceptHeaderVersionedControllerSelector>().As<IHttpControllerSelector>().WithParameter("configuration", GlobalConfiguration.Configuration);
 
