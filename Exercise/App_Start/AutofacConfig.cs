@@ -24,8 +24,8 @@ namespace Exercise.App_Start
             var config = GlobalConfiguration.Configuration;
             builder.RegisterWebApiFilterProvider(config);
             builder.RegisterType<VersionedApiExplorer>().As<IApiExplorer>().WithParameter("configuration", config).InstancePerLifetimeScope();
-            builder.RegisterType<RouteVersionedControllerSelector>().As<IHttpControllerSelector>().WithParameter("configuration", config).InstancePerLifetimeScope();
-            //builder.RegisterType<AcceptHeaderVersionedControllerSelector>().As<IHttpControllerSelector>().WithParameter("configuration", GlobalConfiguration.Configuration);
+            //builder.RegisterType<RouteVersionedControllerSelector>().As<IHttpControllerSelector>().WithParameter("configuration", config).InstancePerLifetimeScope();
+            builder.RegisterType<AcceptHeaderVersionedControllerSelector>().As<IHttpControllerSelector>().WithParameter("configuration", config).InstancePerLifetimeScope();
 
 
             IContainer container = builder.Build();
