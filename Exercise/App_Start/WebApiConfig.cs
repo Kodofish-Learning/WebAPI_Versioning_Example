@@ -20,11 +20,11 @@ namespace Exercise
             // Web API 路由
             config.MapHttpAttributeRoutes();
 
-            config.Routes.MapHttpRoute(
-                                 name: "DefaultApiWithVersion",
-                                 routeTemplate: "api/v{version}/{controller}/{action}/{id}",
-                                 defaults: new { id = RouteParameter.Optional }
-                     );
+            //config.Routes.MapHttpRoute(
+            //                     name: "DefaultApiWithVersion",
+            //                     routeTemplate: "api/v{version}/{controller}/{action}/{id}",
+            //                     defaults: new { id = RouteParameter.Optional }
+            //         );
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
