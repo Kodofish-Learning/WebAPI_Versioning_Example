@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Autofac;
-using Autofac.Integration.Mvc;
-using System.Reflection;
-using SDammann.WebApi.Versioning;
-using System.Web.Http.Description;
-using System.Web.Mvc;
+﻿using System.Reflection;
 using System.Web.Http;
+using System.Web.Http.Description;
 using System.Web.Http.Dispatcher;
+using Autofac;
 using Autofac.Integration.WebApi;
+using SDammann.WebApi.Versioning;
 
 namespace Exercise.App_Start
 {
@@ -18,7 +12,7 @@ namespace Exercise.App_Start
     {
         public static void Initialise()
         {
-            ContainerBuilder builder = new ContainerBuilder();
+            var builder = new ContainerBuilder();
 
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             var config = GlobalConfiguration.Configuration;
@@ -28,7 +22,7 @@ namespace Exercise.App_Start
             builder.RegisterType<AcceptHeaderVersionedControllerSelector>().As<IHttpControllerSelector>().WithParameter("configuration", config).InstancePerLifetimeScope();
 
 
-            IContainer container = builder.Build();
+            var container = builder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
         }
     }
