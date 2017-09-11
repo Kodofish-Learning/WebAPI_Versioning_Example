@@ -173,12 +173,13 @@ namespace Exercise
                         // with the same path (sans query string) and HTTP method. You can workaround this by providing a
                         // custom strategy to pick a winner or merge the descriptions for the purposes of the Swagger docs
                         //
-                        c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+                        //c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
 
                         // Wrap the default SwaggerGenerator with additional behavior (e.g. caching) or provide an
                         // alternative implementation for ISwaggerProvider with the CustomProvider option.
                         //
                         //c.CustomProvider((defaultProvider) => new CachingSwaggerProvider(defaultProvider));
+                        
                     })
                 .EnableSwaggerUi(c =>
                     {
@@ -228,14 +229,15 @@ namespace Exercise
                         // in your project as an "Embedded Resource", and then the resource's "Logical Name" is passed to
                         // the method as shown below.
                         //
-                        //c.CustomAsset("index", containingAssembly, "YourWebApiProject.SwaggerExtensions.index.html");
+                        var exercise = thisAssembly;
+                        c.CustomAsset("index2", exercise, "Exercise.SwaggerExtensions.index.html");
 
                         // If your API has multiple versions and you've applied the MultipleApiVersions setting
                         // as described above, you can also enable a select box in the swagger-ui, that displays
                         // a discovery URL for each version. This provides a convenient way for users to browse documentation
                         // for different API versions.
                         //
-                        //c.EnableDiscoveryUrlSelector();
+                        c.EnableDiscoveryUrlSelector();
 
                         // If your API supports the OAuth2 Implicit flow, and you've described it correctly, according to
                         // the Swagger 2.0 specification, you can enable UI support as shown below.
