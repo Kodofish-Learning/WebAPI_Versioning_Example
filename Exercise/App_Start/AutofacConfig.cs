@@ -18,7 +18,6 @@ namespace Exercise
             var config = GlobalConfiguration.Configuration;
             builder.RegisterWebApiFilterProvider(config);
             builder.RegisterType<VersionedApiExplorer>().As<IApiExplorer>().WithParameter("configuration", config).InstancePerLifetimeScope();
-            //builder.RegisterType<RouteVersionedControllerSelector>().As<IHttpControllerSelector>().WithParameter("configuration", config).InstancePerLifetimeScope();
             builder.RegisterType<VersionHeaderVersionedControllerSelector>().As<IHttpControllerSelector>()
                 .WithParameter("configuration", config)
                 .WithParameter("defaultVersion", "2").

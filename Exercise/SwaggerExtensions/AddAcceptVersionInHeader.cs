@@ -16,15 +16,17 @@ namespace Exercise.SwaggerExtensions
             if (operation.parameters == null) operation.parameters = new List<Parameter>();
 
             var fullName = apiDescription.ActionDescriptor.ControllerDescriptor.ControllerType.FullName;
-            var reg = new Regex(@"Version\d?\.?\d");
             if (fullName == null) return;
 
-            var result = reg.Match(fullName);
+            //取得 Api Version Number
+            var reg = new Regex(@"Version\d?\.?\d");
+            var versionNumber = reg.Match(fullName).Value.Replace("Version", string.Empty);
 
+            //加上 X-Api-Version Header
             operation.parameters.Add(new Parameter
             {
                 name = "X-Api-Version",
-                @default = result.Value.Replace("Version", string.Empty),
+                @default = versionNumber,
                 @in = "header",
                 required = false,
                 type = "string",
