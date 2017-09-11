@@ -6,7 +6,7 @@ using Autofac;
 using Autofac.Integration.WebApi;
 using SDammann.WebApi.Versioning;
 
-namespace Exercise.App_Start
+namespace Exercise
 {
     public class AutofacConfig
     {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
-using System.Web.Mvc;
+﻿using System.Web.Http;
 
 namespace Exercise.Controllers.Version1
 {
@@ -11,7 +6,7 @@ namespace Exercise.Controllers.Version1
     {
         public Message Get()
         {
-            return new Message { Token = "Joey-v1", Signature = "91" };
+            return new Message {Token = "Joey-v1", Signature = "91"};
         }
     }
 
