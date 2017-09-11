@@ -19,7 +19,7 @@ namespace Exercise
             builder.RegisterWebApiFilterProvider(config);
             builder.RegisterType<VersionedApiExplorer>().As<IApiExplorer>().WithParameter("configuration", config).InstancePerLifetimeScope();
             //builder.RegisterType<RouteVersionedControllerSelector>().As<IHttpControllerSelector>().WithParameter("configuration", config).InstancePerLifetimeScope();
-            builder.RegisterType<AcceptHeaderVersionedControllerSelector>().As<IHttpControllerSelector>().WithParameter("configuration", config).InstancePerLifetimeScope();
+            builder.RegisterType<Exercise.SDammann.WebApi.Versioning.AcceptHeaderVersionedControllerSelector>().As<IHttpControllerSelector>().WithParameter("configuration", config).InstancePerLifetimeScope();
 
 
             var container = builder.Build();

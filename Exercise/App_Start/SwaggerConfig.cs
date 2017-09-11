@@ -5,6 +5,7 @@ using Swashbuckle.Application;
 using System.Linq;
 using System;
 using System.Web.Http.Description;
+using Exercise.SwaggerExtensions;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
@@ -160,7 +161,7 @@ namespace Exercise
                         // to execute the operation
                         //
                         //c.OperationFilter<AssignOAuth2SecurityRequirements>();
-
+                        c.OperationFilter<AddAcceptVersionInHeader>();
                         // Post-modify the entire Swagger document by wiring up one or more Document filters.
                         // This gives full control to modify the final SwaggerDocument. You should have a good understanding of
                         // the Swagger 2.0 spec. - https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md
