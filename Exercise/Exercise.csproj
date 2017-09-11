@@ -259,6 +259,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\Version1\HelloController.cs" />
+    <Compile Include="Controllers\Version1_1\HelloController.cs" />
     <Compile Include="Controllers\Version2\HelloController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
