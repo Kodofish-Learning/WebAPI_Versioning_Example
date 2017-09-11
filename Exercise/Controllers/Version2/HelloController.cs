@@ -15,7 +15,7 @@ namespace Exercise.Controllers.Version2
         [HttpGet]
         public AnotherMessage Get()
         {
-            return new AnotherMessage {NewToken = "Joey-v2", NewSignature = "91"};
+            return new AnotherMessage {NewToken = "WebApi-v2", NewDescription = "This is new Description V2"};
         }
     }
 
@@ -23,6 +23,6 @@ namespace Exercise.Controllers.Version2
     {
         public string NewToken { get; set; }
 
-        public string NewSignature { get; set; }
+        public string NewDescription { get; set; }
     }
 }
