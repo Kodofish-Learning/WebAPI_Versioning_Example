@@ -65,7 +65,7 @@ namespace Exercise
         /// <returns></returns>
         private static bool ResolveVersionSupportByRouteConstraint(ApiDescription apiDesc, string targetApiVersion)
         {
-            return apiDesc.ActionDescriptor.ControllerDescriptor.ControllerType.FullName.Contains(targetApiVersion);
+            return apiDesc.ActionDescriptor.ControllerDescriptor.ControllerType.FullName.Contains($"{targetApiVersion}.");
         }
     }
 }
