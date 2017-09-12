@@ -20,7 +20,7 @@ namespace Exercise.SwaggerExtensions
 
             //取得 Api Version Number
             var reg = new Regex(@"Version\d?_?\d");
-            var versionNumber = reg.Match(fullName).Value.Replace("Version", string.Empty);
+            var versionNumber = reg.Match(fullName).Value.Replace("Version", string.Empty).Replace("_", ".");
 
             //加上 X-Api-Version Header
             operation.parameters.Add(new Parameter
